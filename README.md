@@ -14,7 +14,8 @@ An end-to-end, lightweight Security Information and Event Management (SIEM) tool
 4. `app.py` reads the threat telemetry and displays it on a dark-themed UI.
 
 ## 📸 Dashboard Preview
-![SOC Dashboard Screen](YOUR_SCREENSHOT_LINK_HERE)
+<img width="1675" height="903" alt="Screenshot 2026-06-23 at 15 23 37" src="https://github.com/user-attachments/assets/8ac031b9-c43e-49c1-9654-20762e8ac53e" />
+
 
 ## 🔧 Setup & Installation
 1. Clone the repo: `git clone https://github.com/YOUR-USERNAME/Mini-SIEM-Dashboard.git`
