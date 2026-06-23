@@ -18,7 +18,7 @@ An end-to-end, lightweight Security Information and Event Management (SIEM) tool
 
 
 ## 🔧 Setup & Installation
-1. Clone the repo: `git clone https://github.com/YOUR-USERNAME/Mini-SIEM-Dashboard.git`
+1. Clone the repo: `git clone https://github.com/svihijayasinghe15-sudo/Mini-SIEM-Dashboard.git`
 2. Start the log generator: `python3 log_generator.py`
 3. In a separate terminal, start the analysis engine: `python3 siem_core.py`
 4. Run the web application: `python3 app.py`
