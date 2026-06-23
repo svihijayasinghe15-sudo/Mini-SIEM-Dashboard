@@ -1,25 +1,41 @@
-# 🛡️ BlueTeam Mini-SIEM & SOC Dashboard
+# 🛡️ Enterprise Security Ecosystem: Mini-SIEM & Deception Honeypot
 
-An end-to-end, lightweight Security Information and Event Management (SIEM) tool built to simulate enterprise log ingestion, threat detection engineering, and real-time incident response monitoring.
+A unified, multi-component defensive security suite engineered to demonstrate real-time log ingestion, threat detection engineering, and proactive network deception mechanisms. 
 
-## 🚀 Features
-* **Live Log Generation:** Simulates realistic network traffic alongside automated brute-force attacks.
-* **Analysis & Correlation Engine:** Parses unstructured logs in real-time using regex/string parsing and triggers automated alerts when predefined security thresholds are crossed (e.g., Brute Force: 5 failed logins).
-* **Asynchronous Web Dashboard:** A sleek SOC dashboard built with Flask and JavaScript that pools alerts via a custom API and updates dynamically every 3 seconds without page reloads.
+This project bridges an offensive asset (a low-interaction network trap) directly into a centralized Security Information and Event Management (SIEM) pipeline, mimicking enterprise Security Operations Center (SOC) workflows.
 
-## 🛠️ Architecture Flow
-1. `log_generator.py` streams raw security events into `security.log`.
-2. `siem_core.py` acts as the detection engine, parsing lines and tracking anomalous behaviors.
-3. Upon rule violation, alerts are structured into JSON format (`alerts.json`).
-4. `app.py` reads the threat telemetry and displays it on a dark-themed UI.
+---
 
-## 📸 Dashboard Preview
-<img width="1675" height="903" alt="Screenshot 2026-06-23 at 15 23 37" src="https://github.com/user-attachments/assets/8ac031b9-c43e-49c1-9654-20762e8ac53e" />
+## 🏗️ System Architecture & Data Flow
 
+This ecosystem operates via four synchronous pipelines:
 
-## 🔧 Setup & Installation
-1. Clone the repo: `git clone https://github.com/svihijayasinghe15-sudo/Mini-SIEM-Dashboard.git`
-2. Start the log generator: `python3 log_generator.py`
-3. In a separate terminal, start the analysis engine: `python3 siem_core.py`
-4. Run the web application: `python3 app.py`
-5. Navigate to `http://127.0.0.1:5000` in your local browser.
+1. **Log Simulation (`log_generator.py`):** Continuously broadcasts background server traffic, introducing erratic user login activities and mock noise.
+2. **Deception Trap (`honeypot.py`):** Establishes a simulated socket on port `2222` masquerading as a vulnerable OpenSSH server. It logs unauthorized discovery probes, interactions, and threat payloads.
+3. **Correlation Engine (`siem_core.py`):** Constantly monitors both standard event files and honeypot interaction feeds. It applies specific behavioral thresholds (e.g., 5 failed log-in attempts) and elevates any honeypot interaction directly to a `CRITICAL` severity metric.
+4. **Visual Analytics Console (`app.py`):** A lightweight Flask-driven microservice that surfaces the alert cache via a custom API endpoint. The front-end layout uses asynchronous JavaScript to poll changes and stream active indicators directly to the security screen without page refreshes.
+
+---
+
+## 🛠️ Features & Threat Detection Capabilities
+* **Multi-Source Ingestion:** Simultaneously tails generic system logs and dedicated deception environment logs.
+* **Stateful Brute Force Tracking:** Maps anomalous authentication counts specifically by source IP.
+* **Proactive Network Deception:** Employs a custom banner payload response to intercept unauthorized reconnaissance scans.
+* **Dynamic SOC Dashboard:** Dark-mode responsive design offering real-time situational awareness for security operators.
+
+---
+
+## 📸 Live Dashboard Preview
+<img width="1680" height="891" alt="Screenshot 2026-06-23 at 16 23 19" src="https://github.com/user-attachments/assets/c46b3311-edc0-4089-a2f8-c19d99b4c369" />
+
+---
+
+## 🔧 Installation, Deployment, & Execution
+
+To test or deploy this ecosystem within a secure virtual environment (e.g., Kali Linux), initiate the following deployment process:
+
+### 1. Environment Replication
+Clone this repository to your target machine:
+```bash
+git clone [https://github.com/svihijayasinghe15-sudo/Mini-SIEM-Dashboard.git](https://github.com/svihijayasinghe15-sudo/Mini-SIEM-Dashboard.git)
+cd Mini-SIEM-Dashboard
